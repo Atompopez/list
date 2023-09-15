@@ -16,5 +16,19 @@ body{
     width: 100%;
 }
 input{
+    padding-left: 40px;
     width: 100%;
+}
+.entrada, .list-group-item{
+    border: none;
+    height: 50px;
+}
+#item{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+}
+#contador{
+    font-size: small;
+    color: #CBBDC2;
 }
