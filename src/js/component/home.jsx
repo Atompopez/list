@@ -8,16 +8,27 @@ const Home = () => {
     fetch('https://playground.4geeks.com/apis/fake/todos/user/johan')
     .then((response) => response.json())
     .then((data)=> setList(data))
-  },[])
+  },[]);
+
+  useEffect(()=>{
+    fetch('https://playground.4geeks.com/apis/fake/todos/user/johan', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          }, body:JSON.stringify(list)
+        })
+        .then((response)=>response.json())
+        .then((data)=>console.log(data))
+        console.log(list)
+  },[list]);
 
   const agregar = (e) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
       let newId = list.length+1;
       setList([...list, {"done":false , "id":newId ,"label": inputValue}]);
       setInputValue("");
-      console.log(list)
     }
-  };
+  }
 
   const cancelar = (k) => {
     const copiaList = [...list];
