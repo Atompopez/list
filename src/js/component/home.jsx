@@ -10,15 +10,16 @@ const Home = () => {
     .then((data)=> setList(data))
   },[]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch('https://playground.4geeks.com/apis/fake/todos/user/johan', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          }, body:JSON.stringify(list)
-        })
-  },[list]);
-
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(list),
+    });
+  }, [list]);
+  
   const agregar = (e) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
       setList([...list, {"done":false ,"label": inputValue}]);
